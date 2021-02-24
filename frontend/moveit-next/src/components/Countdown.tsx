@@ -6,14 +6,11 @@ export const Countdown = () => {
     const [time, setTime] = useState(initialTime * 60);
     const [active, setActive] = useState(false);
     const [buttonText, setButtonText] = useState('Iniciar um ciclo');
-    const [myTimeOut, setMyTimeOut] = useState<NodeJS.Timeout>(null);
 
     useEffect(() => {
-        if (!active) {
-            clearTimeout(myTimeOut);
-        }
+        let myTimeOut: NodeJS.Timeout;
         if (active && time > 0) {
-            setMyTimeOut(
+            myTimeOut = (
                 setTimeout(() => {
                     setTime(time - 1);
                 }, 1000)
@@ -23,7 +20,8 @@ export const Countdown = () => {
         if (time === 0) {
             setButtonText('Reiniciar Timer');
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+        return () => clearTimeout(myTimeOut);
     }, [active, time])
 
     const splittedMinutes = useMemo(() => {
