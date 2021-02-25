@@ -22,10 +22,12 @@
     height: 4px;
     border-radius: 4px;
     background: var(--green);
+    transition: width 1s;
 }
 
 span.currentExperience {
     position: absolute;
     top: 12px;
     transform: translateX(-50%);
+    transition: left 1s;
 }
