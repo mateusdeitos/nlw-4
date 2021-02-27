@@ -8,4 +8,4 @@ React App developed during NLW-4, an event promoted by Rocketseat to developers 
 * Next.js
 
 ## 👀 Demonstration
-<img src="./github/demo.gif"/>
+<img src="./frontend/moveit-next/.github/demo.gif"/>
