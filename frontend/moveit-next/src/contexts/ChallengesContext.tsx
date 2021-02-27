@@ -1,4 +1,4 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import challenges from '../../challenges.json';
 
 interface Challenge {
@@ -44,7 +44,7 @@ export const ChallengesProvider: React.FC = ({ children }) => {
         const challenge = challenges[randomChallengeIndex];
         setActiveChallenge(challenge);
 
-        
+
         if (Notification.permission === 'granted') {
             new Notification('Novo desafio!', {
                 body: `Valendo ${challenge.amount}xp`,
@@ -91,4 +91,8 @@ export const ChallengesProvider: React.FC = ({ children }) => {
         }}>
             {children}
         </ChallengesContext.Provider>)
+}
+
+export const useChallenges = () => {
+    return useContext(ChallengesContext);
 }

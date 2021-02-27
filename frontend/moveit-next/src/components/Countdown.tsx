@@ -1,9 +1,9 @@
-import { useContext, useMemo } from 'react';
-import { CountdownContext } from '../contexts/CountdownContext';
+import {  useMemo } from 'react';
+import {  useCountdown } from '../contexts/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';
 
 export const Countdown = () => {
-    const { time, hasFinished, isActive, resetCountDown, startCountDown } = useContext(CountdownContext);
+    const { time, hasFinished, isActive, resetCountDown, startCountDown } = useCountdown();
     
     const splittedMinutes = useMemo(() => {
         return String(Math.floor(time / 60)).padStart(2, '0').split('');

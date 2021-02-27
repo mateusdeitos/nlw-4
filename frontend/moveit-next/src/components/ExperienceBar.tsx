@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { ChallengesContext } from '../contexts/ChallengesContext';
+import {  useEffect, useState } from 'react';
+import {  useChallenges } from '../contexts/ChallengesContext';
 import styles from '../styles/components/ExperienceBar.module.css';
 export const ExperienceBar = () => {
-    const { experienceToNextLevel, currentExperience } = useContext(ChallengesContext);
+    const { experienceToNextLevel, currentExperience } = useChallenges();
     const [currentPercentage, setCurrentPercentage] = useState(0);
     const [restOfPercentage, setRestOfPercentage] = useState(0);
 
