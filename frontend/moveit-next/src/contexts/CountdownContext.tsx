@@ -14,7 +14,7 @@ interface CountdownContextData {
 export const CountdownContext = createContext<CountdownContextData>({} as CountdownContextData);
 
 export const CountdownProvider: React.FC = ({ children }) => {
-    const [initialTime] = useState(.05);
+    const [initialTime] = useState(25);
     const [time, setTime] = useState(initialTime * 60);
     const [hasFinished, setHasFinished] = useState(false);
     const [isActive, setIsActive] = useState(false);
