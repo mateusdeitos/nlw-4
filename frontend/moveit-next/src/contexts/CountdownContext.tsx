@@ -14,12 +14,12 @@ interface CountdownContextData {
 export const CountdownContext = createContext<CountdownContextData>({} as CountdownContextData);
 
 export const CountdownProvider: React.FC = ({ children }) => {
-    const [initialTime] = useState(.05);
+    const { startNewChallenge, activeChallenge, level } = useChallenges();
+    const [initialTime] = useState(Math.ceil(level * 0.5));
     const [time, setTime] = useState(initialTime * 60);
     const [hasFinished, setHasFinished] = useState(false);
     const [isActive, setIsActive] = useState(false);
-    const { startNewChallenge, activeChallenge  } = useChallenges();
-    
+
     useEffect(() => {
         let myTimeOut: NodeJS.Timeout;
         if (isActive && time > 0) {
