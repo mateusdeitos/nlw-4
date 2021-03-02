@@ -56,6 +56,13 @@
     transition: transform 0.2s, background-color 0.2s;
 }
 
+@media(max-width: 500px) {
+    .countdownButton {
+        margin-top: 1rem;
+        height: 3rem;
+    }
+}
+
 .countdownButtonActive {
     background: var(--white);
     color: var(--title);

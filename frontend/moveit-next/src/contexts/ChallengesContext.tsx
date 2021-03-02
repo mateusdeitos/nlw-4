@@ -38,7 +38,10 @@ export const ChallengesProvider: React.FC<HomeProps> = ({ children, ...rest }) =
     const [activeChallenge, setActiveChallenge] = useState(null);
 
     useEffect(() => {
-        Notification.requestPermission();
+        try {
+            Notification.requestPermission();            
+        } catch (error) {            
+        }
     }, [])
 
     useEffect(() => {
@@ -66,12 +69,16 @@ export const ChallengesProvider: React.FC<HomeProps> = ({ children, ...rest }) =
         setActiveChallenge(challenge);
 
 
-        if (Notification.permission === 'granted') {
-            new Notification('Novo desafio!', {
-                body: `Valendo ${challenge.amount}xp`,
-                silent: true,
-            })
-            new Audio('/notification.mp3').play();
+        try {
+            if (Notification.permission === 'granted') {
+                new Notification('Novo desafio!', {
+                    body: `Valendo ${challenge.amount}xp`,
+                    silent: true,
+                })
+                new Audio('/notification.mp3').play();
+            }            
+        } catch (error) {
+            
         }
     }, [challenges])
 

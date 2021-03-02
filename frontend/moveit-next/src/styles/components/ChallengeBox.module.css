@@ -71,6 +71,17 @@
     line-height: 1.5;
 }
 
+@media(max-width: 500px) {
+    .challengeActive main p {
+        margin-bottom: 1rem;
+    }
+
+    .challengeActive main img {
+        margin-top: 1rem;
+        max-height: 5rem;
+    }
+}
+
 .challengeActive footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
